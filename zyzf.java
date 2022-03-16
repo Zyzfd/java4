@@ -7,13 +7,17 @@ class clothes {
         InputStream inputStream = System.in;
         Reader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        try {
-            System.out.print("Введите количество карманов: ");
-            pockets = Integer.parseInt(bufferedReader.readLine());
-            System.out.print("Введите цвет: ");
-            color = bufferedReader.readLine();
-        } catch (Exception e) {
-            System.out.println("Неверный тип данных!");
+        while (true) {
+            try {
+                System.out.print("Введите количество карманов: ");
+                pockets = Integer.parseInt(bufferedReader.readLine());
+                System.out.print("Введите цвет: ");
+                color = bufferedReader.readLine();
+                System.out.print("\n");
+                break;
+            } catch (Exception e) {
+                System.out.println("Неверный тип данных!");
+            }
         }
     }
     public void print_pockets() {
@@ -35,13 +39,17 @@ class pants extends clothes{
         InputStream inputstream = System.in;
         Reader inputstreamReader = new InputStreamReader(inputstream);
         BufferedReader bufferedreader = new BufferedReader(inputstreamReader);
-        try {
-            System.out.print("Введите количество пуговиц: ");
-            buttons = Integer.parseInt(bufferedreader.readLine());
-            System.out.print("Введите количество ширинок: ");
-            zipper = Integer.parseInt(bufferedreader.readLine());
-        } catch (Exception e) {
-            System.out.println("Неверный тип данных!");
+        while (true) {
+            try {
+                System.out.print("Введите количество пуговиц: ");
+                buttons = Integer.parseInt(bufferedreader.readLine());
+                System.out.print("Введите количество ширинок: ");
+                zipper = Integer.parseInt(bufferedreader.readLine());
+                System.out.print("\n");
+                break;
+            } catch (Exception e) {
+                System.out.println("Неверный тип данных!");
+            }
         }
     }
     public void print_buttons() {
@@ -52,7 +60,7 @@ class pants extends clothes{
     }
     @Override
     public String toString() {
-        return "Пуговиц: " + buttons + ", ширинок: " + zipper;
+        return super.toString() + ", пуговиц: " + buttons + ", ширинок: " + zipper;
     }
 }
 
@@ -61,6 +69,8 @@ public class zyzf{
         clothes clth = new clothes();
         clothes pant = new pants();
 
+        clth.print_color();
         pant.print_color();
+        System.out.println(pant.toString());
     }
 }
